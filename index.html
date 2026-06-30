@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>신상은 — Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <!-- 프리미엄 에이전시 감성의 산세리프 Inter폰트 고정 사용 -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <style>
 /* ── RESET & BASE ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -119,7 +120,7 @@ section { padding: 100px 0; }
   padding-top: calc(var(--nav-h) + 40px);
   padding-bottom: 80px;
   position: relative;
-  background-image: url('https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/ai/interior-render-commercial-02.png');
+  background-image: url('https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/ai/interior-render-commercial-03.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -237,6 +238,46 @@ section { padding: 100px 0; }
   50% { transform: translateY(-12px) rotate(3deg); }
 }
 
+.hero-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+}
+.hero-stat {
+  background: var(--white);
+  padding: 24px 28px;
+}
+.hero-stat-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.hero-stat-label {
+  font-size: 12px;
+  color: var(--gray-500);
+}
+.hero-scroll {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--gray-400);
+}
+.hero-scroll-line {
+  width: 40px;
+  height: 1px;
+  background: var(--gray-300);
+}
 /* ── ABOUT ── */
 #about { background: var(--white); }
 .about-grid {
@@ -659,335 +700,305 @@ section { padding: 100px 0; }
 </style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav id="nav">
-  <div class="container nav-inner">
-    <a href="#hero" class="nav-logo">SHIN SANGEUN</a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#career">Career</a>
-    </div>
-    <a href="#contact" class="nav-cta">Contact</a>
-    <button class="nav-hamburger" id="hamburger" aria-label="메뉴 열기" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+<div class="container nav-inner">
+<a class="nav-logo" href="#hero">SHIN SANGEUN</a>
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#career">Career</a>
+</div>
+<a class="nav-cta" href="#contact">Contact</a>
+<button aria-expanded="false" aria-label="메뉴 열기" class="nav-hamburger" id="hamburger">
+<span></span><span></span><span></span>
+</button>
+</div>
 </nav>
 <!-- 모바일 드로어 -->
-<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="모바일 메뉴">
-  <a href="#about" class="mobile-nav-link">About</a>
-  <a href="#skills" class="mobile-nav-link">Skills</a>
-  <a href="#projects" class="mobile-nav-link">Projects</a>
-  <a href="#career" class="mobile-nav-link">Career</a>
-  <a href="#contact" class="mobile-nav-link">Contact</a>
+<div aria-label="모바일 메뉴" class="mobile-menu" id="mobile-menu" role="navigation">
+<a class="mobile-nav-link" href="#about">About</a>
+<a class="mobile-nav-link" href="#skills">Skills</a>
+<a class="mobile-nav-link" href="#projects">Projects</a>
+<a class="mobile-nav-link" href="#career">Career</a>
+<a class="mobile-nav-link" href="#contact">Contact</a>
 </div>
-
 <!-- HERO (지시서 최적화 완료) -->
 <section id="hero">
-  <div class="container hero-inner">
-    <div class="hero-grid">
-      
-      <div class="hero-left">
-        <div class="hero-status">
-          <div class="hero-status-dot"></div>
+<div class="container hero-inner">
+<div class="hero-grid">
+<div class="hero-left">
+<div class="hero-status">
+<div class="hero-status-dot"></div>
           현재 채용 제안 및 프리랜서 의뢰 수락 중
         </div>
-        <h1 class="hero-h1">
-          GRAPHIC &<br>VISUAL<br>DESIGNER
+<h1 class="hero-h1">
+          GRAPHIC &amp;<br/>VISUAL<br/>DESIGNER
         </h1>
-        <p class="hero-desc">
+<p class="hero-desc">
           브랜딩, 그래픽, 공간 시각화를 통해 시각 언어와 브랜드 경험의 가치를 설계하는 디자이너 신상은입니다.
         </p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn-primary">작업물 보기</a>
-          <a href="#contact" class="btn-secondary">연락하기</a>
-        </div>
-      </div>
-      
-      <div class="hero-right">
-        <div class="hero-badge-list">
-          <div class="hero-badge">BRANDING</div>
-          <div class="hero-badge">GRAPHIC DESIGN</div>
-          <div class="hero-badge">SPATIAL DESIGN</div>
-          <div class="hero-badge">AI VISUALIZATION</div>
-        </div>
-        <div class="hero-floating-card">
-          <img src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/ai/interior-render-commercial-01.png" alt="Featured Project">
-        </div>
-      </div>
+<div class="hero-actions">
+<a class="btn-primary" href="#projects">작업물 보기</a>
+<a class="btn-secondary" href="#contact">연락하기</a>
+</div>
+</div>
+<div class="hero-right">
+<div class="hero-badge-list">
+<div class="hero-badge">BRANDING</div>
+<div class="hero-badge">GRAPHIC DESIGN</div>
+<div class="hero-badge">SPATIAL DESIGN</div>
+<div class="hero-badge">AI VISUALIZATION</div>
+</div><div class="hero-stats"><div class="hero-stat"><div class="hero-stat-num">4<span style="font-size:20px;opacity:.5">yr</span></div><div class="hero-stat-label">실무 경력</div></div><div class="hero-stat"><div class="hero-stat-num">6<span style="font-size:20px;opacity:.5">+</span></div><div class="hero-stat-label">디자인 영역</div></div><div class="hero-stat"><div class="hero-stat-num">12<span style="font-size:20px;opacity:.5">+</span></div><div class="hero-stat-label">활용 툴</div></div><div class="hero-stat"><div class="hero-stat-num">2017</div><div class="hero-stat-label">자격증 취득</div></div></div>
 
-    </div>
-  </div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ABOUT -->
 <section id="about">
-  <div class="container">
-    <span class="section-label">01 / Profile</span>
-    <div class="about-grid reveal">
-      <h2 class="about-heading">
-        그래픽·영상·공간을 통합하여<br>브랜드의 고유한 경험을<br>시각화합니다.
+<div class="container">
+<span class="section-label">01 / Profile</span>
+<div class="about-grid reveal">
+<h2 class="about-heading">
+        그래픽·영상·공간을<br/>시각화합니다.
       </h2>
-      <div class="about-right">
-        <p class="about-body">
+<div class="about-right">
+<p class="about-body">
           다년간 웹사이트 시각 디자인 및 영상 콘텐츠 제작 실무를 수행했으며, 단순히 시각물을 제작하는 것이 아니라 브랜드 경험의 다양한 접점을 하나로 연결하는 관점을 키워왔습니다. 현재는 AutoCAD · SketchUp · Enscape 등을 활용한 공간 시각화 영역까지 디자인 역량을 확장해 나가고 있습니다.
         </p>
-        <div class="about-card">
-          <div class="about-card-label">Core Capabilities</div>
-          <div class="about-card-val">Branding · Web Design · Motion Graphics · Spatial Visualization · AI Image Generation</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="about-card">
+<div class="about-card-label">Core Capabilities</div>
+<div class="about-card-val">Branding · Web Design · Motion Graphics · Spatial Visualization · AI Image Generation</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- SKILLS (지시서 완벽 반영 그룹화) -->
 <section id="skills">
-  <div class="container">
-    <span class="section-label">02 / Expertise</span>
-    <div class="section-head">
-      <h2>Skills</h2>
-    </div>
-    
-    <div class="skills-inner reveal">
-      <!-- DESIGN 그룹 -->
-      <div class="skills-row">
-        <div class="skills-cat">Design</div>
-        <div class="skills-tags">
-          <span class="skill-tag tool">Photoshop</span>
-          <span class="skill-tag tool">Illustrator</span>
-          <span class="skill-tag tool">Premiere Pro</span>
-          <span class="skill-tag general">After Effects</span>
-          <span class="skill-tag general">웹디자인</span>
-          <span class="skill-tag general">편집디자인</span>
-        </div>
-      </div>
-      <!-- SPATIAL 그룹 -->
-      <div class="skills-row">
-        <div class="skills-cat">Spatial</div>
-        <div class="skills-tags">
-          <span class="skill-tag tool">SketchUp</span>
-          <span class="skill-tag tool">Enscape</span>
-          <span class="skill-tag tool">AutoCAD</span>
-          <span class="skill-tag general">실내건축 도면</span>
-          <span class="skill-tag general">공간 브랜딩</span>
-        </div>
-      </div>
-      <!-- AI 그룹 -->
-      <div class="skills-row">
-        <div class="skills-cat">AI Tools</div>
-        <div class="skills-tags">
-          <span class="skill-tag tool">Midjourney</span>
-          <span class="skill-tag tool">KREA AI</span>
-          <span class="skill-tag general">Nano Banana</span>
-          <span class="skill-tag general">AI 렌더링 보정</span>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<span class="section-label">02 / Expertise</span>
+<div class="section-head">
+<h2>Skills</h2>
+</div>
+<div class="skills-inner reveal">
+<!-- DESIGN 그룹 -->
+<div class="skills-row">
+<div class="skills-cat">Design</div>
+<div class="skills-tags">
+<span class="skill-tag tool">Photoshop</span>
+<span class="skill-tag tool">Illustrator</span>
+<span class="skill-tag tool">Premiere Pro</span>
+<span class="skill-tag general">After Effects</span>
+<span class="skill-tag general">웹디자인</span>
+<span class="skill-tag general">편집디자인</span>
+</div>
+</div>
+<!-- SPATIAL 그룹 -->
+<div class="skills-row">
+<div class="skills-cat">Spatial</div>
+<div class="skills-tags">
+<span class="skill-tag tool">SketchUp</span>
+<span class="skill-tag tool">Enscape</span>
+<span class="skill-tag tool">AutoCAD</span>
+<span class="skill-tag general">실내건축 도면</span>
+<span class="skill-tag general">공간 브랜딩</span>
+</div>
+</div>
+<!-- AI 그룹 -->
+<div class="skills-row">
+<div class="skills-cat">AI Tools</div>
+<div class="skills-tags">
+<span class="skill-tag tool">Midjourney</span>
+<span class="skill-tag tool">KREA AI</span>
+<span class="skill-tag general">Nano Banana</span>
+<span class="skill-tag general">AI 렌더링 보정</span>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- PROJECTS (지시서 반영 하단정보 최소화 및 높이 시스템 통일) -->
 <section id="projects">
-  <div class="container">
-    <span class="section-label">03 / Works</span>
-    <div class="section-head">
-      <h2>Projects</h2>
-    </div>
-
-    <div class="filter-bar reveal" role="group">
-      <button class="filter-btn active" data-cat="all">All</button>
-      <button class="filter-btn" data-cat="branding">Branding</button>
-      <button class="filter-btn" data-cat="editorial">Editorial</button>
-      <button class="filter-btn" data-cat="marketing">Marketing</button>
-      <button class="filter-btn" data-cat="ai">AI Design</button>
-    </div>
-
-    <div class="projects-grid" id="projects-grid">
-
-      <!-- Blanche 프로젝트 카드 -->
-      <article class="proj-card reveal span-2" data-cat="branding" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/business-card/allinpass-business-card-mockup-03-1.png">
-        <div class="proj-img-wrap">
-          <img class="proj-img" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/business-card/allinpass-business-card-mockup-03-1.png" alt="Blanche" loading="lazy">
-        </div>
-        <div class="proj-info">
-          <div class="proj-title">명함 디자인</div>
-          <div class="proj-meta">Branding</div>
-        </div>
-      </article>
-
-      <!-- Book Cover 프로젝트 카드 -->
-      <article class="proj-card reveal span-1" data-cat="editorial" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/book-cover/allinpass-the-password-plus-workbook-cover-mockup-01.png">
-        <div class="proj-img-wrap">
-          <img class="proj-img" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/book-cover/allinpass-the-password-plus-workbook-cover-mockup-01.png" alt="Book Cover" loading="lazy">
-        </div>
-        <div class="proj-info">
-          <div class="proj-title">교재 표지 디자인</div>
-          <div class="proj-meta">Editorial</div>
-        </div>
-      </article>
-
-      <!-- Branding 프로젝트 카드 -->
-      <article class="proj-card reveal span-1" data-cat="branding" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/branding/allinpass-study-cafe-branding-02.png">
-        <div class="proj-img-wrap">
-          <img class="proj-img" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/branding/allinpass-study-cafe-branding-02.png" alt="Branding" loading="lazy">
-        </div>
-        <div class="proj-info">
-          <div class="proj-title">공간 그래픽 브랜딩</div>
-          <div class="proj-meta">Branding</div>
-        </div>
-      </article>
-
-      <!-- Interior 프로젝트 카드 -->
-      <article class="proj-card reveal span-2" data-cat="editorial" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/interior/interior-render-residential-01.jpeg">
-        <div class="proj-img-wrap">
-          <img class="proj-img" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/interior/interior-render-residential-01.jpeg" alt="Interior Rendering" loading="lazy">
-        </div>
-        <div class="proj-info">
-          <div class="proj-title">상업 공간 인테리어 시각화</div>
-          <div class="proj-meta">Spatial Design</div>
-        </div>
-      </article>
-
-      <!-- Banner 프로젝트 카드 -->
-      <article class="proj-card reveal span-1" data-cat="marketing" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/banner/allinpass-banner-01.png">
-        <div class="proj-img-wrap">
-          <img class="proj-img" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/banner/allinpass-banner-01.png" alt="Promotion Banner" loading="lazy">
-        </div>
-        <div class="proj-info">
-          <div class="proj-title">프로모션 배너</div>
-          <div class="proj-meta">Marketing</div>
-        </div>
-      </article>
-
-      <!-- AI 프로젝트 카드 -->
-      <article class="proj-card reveal span-2" data-cat="ai" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/ai/interior-render-commercial-01.png">
-        <div class="proj-img-wrap">
-          <img class="proj-img" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/ai/interior-render-commercial-01.png" alt="AI Workspace" loading="lazy">
-        </div>
-        <div class="proj-info">
-          <div class="proj-title">AI 제너레이티브 렌더링 워크플로</div>
-          <div class="proj-meta">AI Design</div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- LIGHTBOX (작품 감상 중심 갤러리 팝업 구조 변경 완료) -->
-<div id="lightbox" role="dialog" aria-modal="true" aria-label="이미지 뷰어">
-  <div id="lightbox-inner">
-    <button id="lightbox-close" aria-label="닫기">&#215;</button>
-    <button id="lightbox-prev" aria-label="이전 이미지">&#8249;</button>
-    <img id="lightbox-img" src="" alt="">
-    <button id="lightbox-next" aria-label="다음 이미지">&#8250;</button>
-    <div id="lightbox-counter"></div>
-  </div>
+<div class="container">
+<span class="section-label">03 / Works</span>
+<div class="section-head">
+<h2>Projects</h2>
 </div>
-
+<div class="filter-bar reveal" role="group">
+<button class="filter-btn active" data-cat="all">All</button>
+<button class="filter-btn" data-cat="branding">Branding</button>
+<button class="filter-btn" data-cat="editorial">Editorial</button>
+<button class="filter-btn" data-cat="marketing">Marketing</button>
+<button class="filter-btn" data-cat="ai">AI Design</button>
+</div>
+<div class="projects-grid" id="projects-grid">
+<!-- Blanche 프로젝트 카드 -->
+<article class="proj-card reveal span-2" data-cat="branding" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/business-card/allinpass-business-card-mockup-03-1.png">
+<div class="proj-img-wrap">
+<img alt="Blanche" class="proj-img" loading="lazy" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/business-card/allinpass-business-card-mockup-03-1.png"/>
+</div>
+<div class="proj-info">
+<div class="proj-title">명함 디자인</div>
+<div class="proj-meta">Branding</div>
+</div>
+</article>
+<!-- Book Cover 프로젝트 카드 -->
+<article class="proj-card reveal span-1" data-cat="editorial" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/book-cover/allinpass-the-password-plus-workbook-cover-mockup-01.png">
+<div class="proj-img-wrap">
+<img alt="Book Cover" class="proj-img" loading="lazy" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/book-cover/allinpass-the-password-plus-workbook-cover-mockup-01.png"/>
+</div>
+<div class="proj-info">
+<div class="proj-title">교재 표지 디자인</div>
+<div class="proj-meta">Editorial</div>
+</div>
+</article>
+<!-- Branding 프로젝트 카드 -->
+<article class="proj-card reveal span-1" data-cat="branding" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/branding/allinpass-study-cafe-branding-02.png">
+<div class="proj-img-wrap">
+<img alt="Branding" class="proj-img" loading="lazy" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/branding/allinpass-study-cafe-branding-02.png"/>
+</div>
+<div class="proj-info">
+<div class="proj-title">공간 그래픽 브랜딩</div>
+<div class="proj-meta">Branding</div>
+</div>
+</article>
+<!-- Interior 프로젝트 카드 -->
+<article class="proj-card reveal span-2" data-cat="editorial" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/interior/interior-render-residential-01.jpeg">
+<div class="proj-img-wrap">
+<img alt="Interior Rendering" class="proj-img" loading="lazy" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/interior/interior-render-residential-01.jpeg"/>
+</div>
+<div class="proj-info">
+<div class="proj-title">상업 공간 인테리어 시각화</div>
+<div class="proj-meta">Spatial Design</div>
+</div>
+</article>
+<!-- Banner 프로젝트 카드 -->
+<article class="proj-card reveal span-1" data-cat="marketing" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/banner/allinpass-banner-01.png">
+<div class="proj-img-wrap">
+<img alt="Promotion Banner" class="proj-img" loading="lazy" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/banner/allinpass-banner-01.png"/>
+</div>
+<div class="proj-info">
+<div class="proj-title">프로모션 배너</div>
+<div class="proj-meta">Marketing</div>
+</div>
+</article>
+<!-- AI 프로젝트 카드 -->
+<article class="proj-card reveal span-2" data-cat="ai" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/ai/interior-render-commercial-01.png">
+<div class="proj-img-wrap">
+<img alt="AI Workspace" class="proj-img" loading="lazy" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/ai/interior-render-commercial-01.png"/>
+</div>
+<div class="proj-info">
+<div class="proj-title">AI 제너레이티브 렌더링 워크플로</div>
+<div class="proj-meta">AI Design</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- LIGHTBOX (작품 감상 중심 갤러리 팝업 구조 변경 완료) -->
+<div aria-label="이미지 뷰어" aria-modal="true" id="lightbox" role="dialog">
+<div id="lightbox-inner">
+<button aria-label="닫기" id="lightbox-close">×</button>
+<button aria-label="이전 이미지" id="lightbox-prev">‹</button>
+<img alt="" id="lightbox-img" src=""/>
+<button aria-label="다음 이미지" id="lightbox-next">›</button>
+<div id="lightbox-counter"></div>
+</div>
+</div>
 <!-- CAREER (진한 회색 텍스트 폰트 적용 및 정보 디자인 최적화) -->
 <section id="career">
-  <div class="container">
-    <span class="section-label">04 / Experience</span>
-    <div class="section-head">
-      <h2>Career</h2>
-    </div>
-    <div class="career-list reveal">
-
-      <div class="career-item">
-        <div>
-          <div class="career-period">2015.05 — 2017.07</div>
-          <div class="career-duration">자격증</div>
-        </div>
-        <div>
-          <div class="career-title">ITQ 자격증 & GTQ 1급 자격증</div>
-          <div class="career-company">한국생산성본부</div>
-        </div>
-      </div>
-
-      <div class="career-item">
-        <div>
-          <div class="career-period">2018.04 — 2019.01</div>
-          <div class="career-duration">10개월</div>
-        </div>
-        <div>
-          <div class="career-title">애니메이션 프로젝트 프로듀서 (PD)</div>
-          <div class="career-company">긱스소프트</div>
-          <p class="career-desc">— 콘티 · 제작 · 편집 등 전 과정 관리 및 품질 검수 담당</p>
-        </div>
-      </div>
-
-      <div class="career-item">
-        <div>
-          <div class="career-period">2020.07 — 2025.04</div>
-          <div class="career-duration">4년 10개월</div>
-        </div>
-        <div>
-          <div class="career-title">웹디자이너 (Visual Web & Video Specialist)</div>
-          <div class="career-company">특수교육패스</div>
-          <p class="career-desc">— 웹사이트 전반의 시각 디자인, 레이아웃, 색상, 이미지 제작</p>
-          <p class="career-desc">— 컷 편집, 자막, 모션 그래픽, 색 보정 등 영상 콘텐츠 제작</p>
-          <p class="career-desc">— 프로모션 배너, 상세페이지, SNS 콘텐츠 디자인 병행</p>
-        </div>
-      </div>
-
-      <div class="career-item">
-        <div>
-          <div class="career-period">2025.07 — 2025.12</div>
-          <div class="career-duration">교육 수료</div>
-        </div>
-        <div>
-          <div class="career-title">[BIM] 건축설계 & 실내건축 인테리어 과정</div>
-          <div class="career-company">그린컴퓨터아트학원 종로</div>
-          <p class="career-desc">— AutoCAD 실내건축 설계도면 제작 프로덕션 과정 이수</p>
-          <p class="career-desc">— SketchUp 기반 공간·가구 3D 모델링 및 Enscape 리얼타임 비주얼 그래픽스 구현</p>
-          <p class="career-desc">— Midjourney / KREA AI 고해상도 생성형 렌더링 보정 프로세스 구축</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
+<div class="container">
+<span class="section-label">04 / Experience</span>
+<div class="section-head">
+<h2>Career</h2>
+</div>
+<div class="career-list reveal">
+<div class="career-item">
+<div>
+<div class="career-period">2015.05 — 2017.07</div>
+<div class="career-duration">자격증</div>
+</div>
+<div>
+<div class="career-title">ITQ 자격증 &amp; GTQ 1급 자격증</div>
+<div class="career-company">한국생산성본부</div>
+</div>
+</div>
+<div class="career-item">
+<div>
+<div class="career-period">2018.04 — 2019.01</div>
+<div class="career-duration">10개월</div>
+</div>
+<div>
+<div class="career-title">애니메이션 프로젝트 프로듀서 (PD)</div>
+<div class="career-company">긱스소프트</div>
+<p class="career-desc">— 콘티 · 제작 · 편집 등 전 과정 관리 및 품질 검수 담당</p>
+</div>
+</div>
+<div class="career-item">
+<div>
+<div class="career-period">2020.07 — 2025.04</div>
+<div class="career-duration">4년 10개월</div>
+</div>
+<div>
+<div class="career-title">웹디자이너 (Visual Web &amp; Video Specialist)</div>
+<div class="career-company">특수교육패스</div>
+<p class="career-desc">— 웹사이트 전반의 시각 디자인, 레이아웃, 색상, 이미지 제작</p>
+<p class="career-desc">— 컷 편집, 자막, 모션 그래픽, 색 보정 등 영상 콘텐츠 제작</p>
+<p class="career-desc">— 프로모션 배너, 상세페이지, SNS 콘텐츠 디자인 병행</p>
+</div>
+</div>
+<div class="career-item">
+<div>
+<div class="career-period">2025.07 — 2025.12</div>
+<div class="career-duration">교육 수료</div>
+</div>
+<div>
+<div class="career-title">[BIM] 건축설계 &amp; 실내건축 인테리어 과정</div>
+<div class="career-company">그린컴퓨터아트학원 종로</div>
+<p class="career-desc">— AutoCAD 실내건축 설계도면 제작 프로덕션 과정 이수</p>
+<p class="career-desc">— SketchUp 기반 공간·가구 3D 모델링 및 Enscape 리얼타임 비주얼 그래픽스 구현</p>
+<p class="career-desc">— Midjourney / KREA AI 고해상도 생성형 렌더링 보정 프로세스 구축</p>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- CONTACT -->
 <section id="contact">
-  <div class="container">
-    <span class="section-label">05 / Contact</span>
-    <div class="contact-grid reveal">
-      <div>
-        <h2 class="contact-heading">함께<br>만들어요</h2>
-        <p class="contact-greeting">채용 제안, 프리랜서 의뢰, 협업 문의 모두 환영합니다.</p>
-      </div>
-      <div class="contact-details">
-        <div class="contact-line">
-          <div class="contact-line-label">Email</div>
-          <div class="contact-line-val"><a href="mailto:ssu8969@gmail.com">ssu8969@gmail.com</a></div>
-        </div>
-        <div class="contact-line">
-          <div class="contact-line-label">Phone</div>
-          <div class="contact-line-val">010-9137-8969</div>
-        </div>
-        <div class="contact-line">
-          <div class="contact-line-label">Website</div>
-          <div class="contact-line-val">https://sang-eun.my.canva.site/commercial</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<span class="section-label">05 / Contact</span>
+<div class="contact-grid reveal">
+<div>
+<h2 class="contact-heading">함께<br/>만들어요</h2>
+<p class="contact-greeting">채용 제안, 프리랜서 의뢰, 협업 문의 모두 환영합니다.</p>
+</div>
+<div class="contact-details">
+<div class="contact-line">
+<div class="contact-line-label">Email</div>
+<div class="contact-line-val"><a href="mailto:ssu8969@gmail.com">ssu8969@gmail.com</a></div>
+</div>
+<div class="contact-line">
+<div class="contact-line-label">Phone</div>
+<div class="contact-line-val">010-9137-8969</div>
+</div>
+<div class="contact-line">
+<div class="contact-line-label">Website</div>
+<div class="contact-line-val">https://sang-eun.my.canva.site/commercial</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- FOOTER -->
 <footer id="footer">
-  <div class="container footer-inner">
-    <span>© 2026 Shin Sangeun. All rights reserved.</span>
-    <button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top ↑</button>
-  </div>
+<div class="container footer-inner">
+<span>© 2026 Shin Sangeun. All rights reserved.</span>
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top ↑</button>
+</div>
 </footer>
-
 <script>
 (function() {
   /* 상단 네비게이션 스크롤 효과 인터랙션 */
