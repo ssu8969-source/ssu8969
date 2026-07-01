@@ -586,7 +586,15 @@ section { padding: 100px 0; }
   font-size: 15px;
   font-weight: 500;
 }
+.contact-line-val a{
+    color: inherit;
+    text-decoration: none;
+    transition: opacity .2s ease;
+}
 
+.contact-line-val a:hover{
+    opacity: .6;
+}
 /* ── FOOTER ── */
 #footer {
   padding: 40px 0;
@@ -995,8 +1003,14 @@ section { padding: 100px 0; }
 <div class="contact-line-val">010-9137-8969</div>
 </div>
 <div class="contact-line">
-<div class="contact-line-label">Website</div>
-<div class="contact-line-val">https://sang-eun.my.canva.site/commercial</div>
+    <div class="contact-line-label">Website</div>
+    <div class="contact-line-val">
+        <a href="https://sang-eun.my.canva.site/commercial"
+           target="_blank"
+           rel="noopener noreferrer">
+           Commercial Space Portfolio Link
+        </a>
+    </div>
 </div>
 </div>
 </div>
