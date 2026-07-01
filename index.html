@@ -372,70 +372,72 @@ section { padding: 100px 0; }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 28px;
 }
 .proj-card {
   display: flex;
   flex-direction: column;
   cursor: pointer;
 }
-.proj-card.span-full {
+/* 지시서 반영: 12컬럼 기준으로 통일 (3열/12열 span 혼용 버그 수정) — 1/3, 2/3, 전체 폭 */
+.proj-card.span-full,
+.proj-card.span-12 {
   grid-column: 1 / -1;
 }
 .proj-card.span-2 {
-  grid-column: span 2;
+  grid-column: span 8;
 }
 .proj-card.span-1 {
-  grid-column: span 1;
+  grid-column: span 4;
 }
 .proj-img-wrap {
   overflow: hidden;
   background: var(--gray-50);
-  margin-bottom: 16px;
+  margin-bottom: 0px;
   position: relative;
 }
-.proj-card.span-full .proj-img-wrap {
-  height: 520px;
+/* 카드 폭에 비례한 높이 비율로 조정하여 시각적 균형 개선 */
+.proj-card.span-full .proj-img-wrap,
+.proj-card.span-12 .proj-img-wrap {
+  height: 460px;
 }
 .proj-card.span-2 .proj-img-wrap {
-  height: 340px;
+  height: 360px;
 }
 .proj-card.span-1 .proj-img-wrap {
-  height: 300px;
+  height: 360px;
 }
 
 .proj-img {
   width: 100%; height: 100%; object-fit: cover;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
-.proj-card:hover .proj-img { opacity: 0.85; }
+.proj-card:hover .proj-img { opacity: 0.9; transform: scale(1.03); }
 
 /* 지시서 반영: 카드 하단 정보 최소화 및 높이 시스템 일관성 통일 */
 .proj-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  min-height: 48px; /* Blanche 기준 높이 균일화 */
+  padding: 18px 20px 20px;
 }
 .proj-title {
   font-size: 14px;
   font-weight: 600;
   color: var(--black);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 .proj-meta {
   font-size: 12px;
-  color: var(--gray-500);
+  color: var(--gray-400);
 }
-
 /* ── LIGHTBOX (작품 감상 중심 갤러리 팝업 전면 개편) ── */
 #lightbox {
   display: none;
   position: fixed;
   inset: 0;
   z-index: 999;
-  background: #FFFFFF;
+  background: rgba(0,0,0,.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   align-items: center;
   justify-content: center;
   padding: 64px;
@@ -460,7 +462,7 @@ section { padding: 100px 0; }
   top: -24px; right: 0;
   font-size: 28px;
   font-weight: 300;
-  color: var(--black);
+  color: var(--white);
   cursor: pointer;
 }
 #lightbox-prev, #lightbox-next {
@@ -469,14 +471,15 @@ section { padding: 100px 0; }
   transform: translateY(-50%);
   width: 44px;
   height: 44px;
-  background: var(--black);
+  background: rgba(255,255,255,.08);
   color: var(--white);
   font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border: none;
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(12px);
   transition: opacity 0.2s;
   z-index: 10;
 }
@@ -656,17 +659,22 @@ section { padding: 100px 0; }
   }
   .hero-floating-card { align-self: flex-start; }
   /* 3열 → 2열 전환: span-2는 2칸 유지, span-1은 1칸 */
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .proj-card.span-2 { grid-column: 1 / -1; }
   .proj-card.span-1 { grid-column: span 1; }
-  .proj-card.span-full { grid-column: 1 / -1; }
+  .proj-card.span-full, .proj-card.span-12 { grid-column: 1 / -1; }
+  .proj-card.span-2 .proj-img-wrap { height: 380px; }
+  .proj-card.span-1 .proj-img-wrap { height: 300px; }
+  .proj-card.span-full .proj-img-wrap,
+  .proj-card.span-12 .proj-img-wrap { height: 440px; }
 }
 @media (max-width: 640px) {
-  .projects-grid { grid-template-columns: 1fr; }
-  .proj-card.span-2, .proj-card.span-full, .proj-card.span-1 { grid-column: span 1; }
+  .projects-grid { grid-template-columns: 1fr; gap: 16px; }
+  .proj-card.span-2, .proj-card.span-full, .proj-card.span-12, .proj-card.span-1 { grid-column: span 1; }
   .proj-card.span-full .proj-img-wrap,
+  .proj-card.span-12 .proj-img-wrap,
   .proj-card.span-2 .proj-img-wrap,
-  .proj-card.span-1 .proj-img-wrap { height: 240px; }
+  .proj-card.span-1 .proj-img-wrap { height: 260px; }
   .nav-links { display: none; }
   .nav-cta { display: none; }
   .nav-hamburger { display: flex; }
@@ -675,6 +683,11 @@ section { padding: 100px 0; }
 
 /* 프로젝트 카드 필터 페이드 트랜지션 */
 .proj-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  background: var(--gray-50);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .proj-card.hidden {
@@ -751,7 +764,6 @@ section { padding: 100px 0; }
 <div class="hero-badge">SPATIAL DESIGN</div>
 <div class="hero-badge">AI VISUALIZATION</div>
 </div><div class="hero-stats"><div class="hero-stat"><div class="hero-stat-num">5<span style="font-size:20px;opacity:.5">yr</span></div><div class="hero-stat-label">실무 경력</div></div><div class="hero-stat"><div class="hero-stat-num">6<span style="font-size:20px;opacity:.5">+</span></div><div class="hero-stat-label">디자인 영역</div></div><div class="hero-stat"><div class="hero-stat-num">12<span style="font-size:20px;opacity:.5">+</span></div><div class="hero-stat-label">활용 툴</div></div><div class="hero-stat"><div class="hero-stat-num">AI</div><div class="hero-stat-label">Workflow</div></div></div>
-
 </div>
 </div>
 </div>
@@ -836,75 +848,73 @@ section { padding: 100px 0; }
 </div>
 <div class="projects-grid" id="projects-grid">
 <!-- Branding 프로젝트 카드 -->
-<article class="proj-card reveal span-2" data-cat="branding" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/business-card/allinpass-business-card-mockup-01.png">
-<div class="proj-img-wrap">
-<img alt="Blanche" class="proj-img" loading="lazy" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/business-card/allinpass-business-card-mockup-01.png"/>
-</div>
-<div class="proj-info">
-<div class="proj-title">명함 디자인</div>
-<div class="proj-meta">Branding</div>
-</div>
-</article>
+
 <!-- Book Cover 프로젝트 카드 -->
-<article class="proj-card reveal span-1" data-cat="editorial" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/book-cover/allinpass-the-password-plus-workbook-cover-mockup-01.png">
-<div class="proj-img-wrap">
-<img alt="Book Cover" class="proj-img" loading="lazy" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/book-cover/allinpass-the-password-plus-workbook-cover-mockup-01.png"/>
-</div>
-<div class="proj-info">
-<div class="proj-title">교재 표지 디자인</div>
-<div class="proj-meta">Editorial</div>
-</div>
-</article>
+
 <!-- Branding 프로젝트 카드 -->
-<article class="proj-card reveal span-1" data-cat="branding" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/branding/allinpass-branding-01.png">
-<div class="proj-img-wrap">
-<img alt="Branding" class="proj-img" loading="lazy" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/branding/allinpass-branding-01.png"/>
-</div>
-<div class="proj-info">
-<div class="proj-title">간판 디자인</div>
-<div class="proj-meta">Branding</div>
-</div>
-</article>
+
 <!-- Interior 프로젝트 카드 -->
-<article class="proj-card reveal span-2" data-cat="spatial design" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/interior/interior-render-commercial-01.png">
-<div class="proj-img-wrap">
-<img alt="Interior Rendering" class="proj-img" loading="lazy" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/interior/interior-render-commercial-01.png"/>
-</div>
-<div class="proj-info">
-<div class="proj-title">상업 공간 인테리어 시각화</div>
-<div class="proj-meta">Spatial Design</div>
-</div>
-</article>
+
 <!-- Banner 프로젝트 카드 -->
-<article class="proj-card reveal span-1" data-cat="branding" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/logo/allinpass-logo-01-1.png">
+
+<!-- AI 프로젝트 카드 -->
+
+<article class="proj-card reveal span-12" data-cat="branding" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/logo/allinpass-logo-01-1.png">
 <div class="proj-img-wrap">
 <img alt="Promotion Banner" class="proj-img" loading="lazy" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/logo/allinpass-logo-01-1.png"/>
 </div>
 <div class="proj-info">
-<div class="proj-title">로고 디자인</div>
-<div class="proj-meta">Branding</div>
+<div class="proj-title">Allinpass — 로고 디자인</div>
+<div class="proj-meta">브랜드 아이덴티티 · 로고 · Illustrator</div>
 </div>
-</article>
-<!-- AI 프로젝트 카드 -->
-<article class="proj-card reveal span-2" data-cat="ai" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/ai/interior-render-residential-02.png">
+</article><article class="proj-card reveal span-2" data-cat="branding" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/branding/allinpass-branding-01.png">
+<div class="proj-img-wrap">
+<img alt="Branding" class="proj-img" loading="lazy" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/branding/allinpass-branding-01.png"/>
+</div>
+<div class="proj-info">
+<div class="proj-title">Allinpass — 간판 디자인</div>
+<div class="proj-meta">간판 · 스카시 · 공간 그래픽 · Illustrator</div>
+</div>
+</article><article class="proj-card reveal span-1" data-cat="branding" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/business-card/allinpass-business-card-mockup-01.png">
+<div class="proj-img-wrap">
+<img alt="Blanche" class="proj-img" loading="lazy" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/business-card/allinpass-business-card-mockup-01.png"/>
+</div>
+<div class="proj-info">
+<div class="proj-title">Allinpass — 명함 디자인</div>
+<div class="proj-meta">명함 · 브랜드 스테이셔너리 · Illustrator · Photoshop</div>
+</div>
+</article><article class="proj-card reveal span-1" data-cat="editorial" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/book-cover/allinpass-the-password-plus-workbook-cover-mockup-01.png">
+<div class="proj-img-wrap">
+<img alt="Book Cover" class="proj-img" loading="lazy" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/book-cover/allinpass-the-password-plus-workbook-cover-mockup-01.png"/>
+</div>
+<div class="proj-info">
+<div class="proj-title">The Password Plus — 워크북 표지 디자인</div>
+<div class="proj-meta">책 표지 디자인 · Photoshop · Illustrator</div>
+</div>
+</article><article class="proj-card reveal span-2" data-cat="spatial design" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/interior/interior-render-commercial-01.png" data-video="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/interior/interior-render-commercial.mp4">
+<div class="proj-img-wrap">
+<img alt="Interior Rendering" class="proj-img" loading="lazy" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/interior/interior-render-commercial-01.png"/>
+</div>
+<div class="proj-info">
+<div class="proj-title">상업 공간 인테리어 렌더링</div>
+<div class="proj-meta">공간 시각화 · SketchUp · Enscape · AutoCAD</div>
+</div>
+</article><article class="proj-card reveal span-12" data-cat="ai" data-img="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/ai/interior-render-residential-02.png">
 <div class="proj-img-wrap">
 <img alt="AI Workspace" class="proj-img" loading="lazy" src="https://raw.githubusercontent.com/ssu8969-source/ssu8969/main/portfolio/images/ai/interior-render-residential-02.png"/>
 </div>
 <div class="proj-info">
-<div class="proj-title">AI 제너레이티브 렌더링 워크플로</div>
-<div class="proj-meta">AI Design</div>
+<div class="proj-title">AI 이미지 생성 &amp; 렌더링 워크플로</div>
+<div class="proj-meta">Midjourney · KREA AI · Nano Banana · Photoshop 보정 합성</div>
 </div>
-</article>
-</div>
+</article></div>
 </div>
 </section>
 <!-- LIGHTBOX (작품 감상 중심 갤러리 팝업 구조 변경 완료) -->
 <div aria-label="이미지 뷰어" aria-modal="true" id="lightbox" role="dialog">
 <div id="lightbox-inner">
 <button aria-label="닫기" id="lightbox-close">×</button>
-<button aria-label="이전 이미지" id="lightbox-prev">‹</button>
-<img alt="" id="lightbox-img" src=""/>
-<button aria-label="다음 이미지" id="lightbox-next">›</button>
+<img alt="" id="lightbox-img" src=""/><video id="lightbox-video" controls autoplay style="display:none;max-width:100%;max-height:80vh;"></video>
 <div id="lightbox-counter"></div>
 </div>
 </div>
@@ -1028,17 +1038,31 @@ section { padding: 100px 0; }
   const lbClose  = document.getElementById('lightbox-close');
 
   function openLightbox(card) {
-    const src = card.dataset.img || card.querySelector('.proj-img')?.src || '';
-    lbImg.src = src;
+    const video=document.getElementById('lightbox-video');
+    const vsrc=card.dataset.video;
+    if(vsrc){
+      lbImg.style.display='none';
+      video.style.display='block';
+      video.src=vsrc;
+      video.play();
+    }else{
+      video.pause();video.removeAttribute('src');video.load();
+      video.style.display='none';
+      lbImg.style.display='block';
+      const src=card.dataset.img||card.querySelector('.proj-img')?.src||'';
+      lbImg.src=src;
+    }
     lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow='hidden';
   }
 
   function closeLightbox() {
-    lightbox.classList.remove('open');
-    document.body.style.overflow = '';
-    lbImg.src = '';
-  }
+lightbox.classList.remove('open');
+document.body.style.overflow='';
+lbImg.src='';
+const v=document.getElementById('lightbox-video');
+v.pause();v.removeAttribute('src');v.load();v.style.display='none';lbImg.style.display='block';
+}
 
   projCards.forEach(function(card) {
     card.addEventListener('click', function() { openLightbox(card); });
